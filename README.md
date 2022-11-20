@@ -18,18 +18,13 @@ Install pport\htmlparser using composer :
   <head> </head>
 
   <body>
-    <fetch route="http://localhost:8000/" ref="{@invoice}" params='{"id":"1"}'>
+    <fetch route="http://localhost:8000/" params='{"id":"1"}'>
       <@echo('Test') /> <@if(isset(@_GET['form_error'])):/> <@var_dump('Test')
       /> <@endif/>
     </fetch>
 
     <script type="text/javascript" src="/scripts/jquery.js"></script>
-    <script type="text/javascript" src="/scripts/plugins.js"></script>
-    <script type="text/javascript" src="/scripts/custom.js"></script>
-    <script
-      type="text/javascript"
-      src="http://localhost/epesicloud/reactive.epesicloud.com/pport/pport-reactive.js"
-    ></script>
+    <script type="text/javascript" src="/scripts/pport-reactive.js"></script>
     <script type="text/javascript">
       Reactive.start();
     </script>
