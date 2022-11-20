@@ -1,0 +1,22 @@
+{
+    "name": "pport/htmlparser",
+    "description": "Create & Parse HTML Templates to PHP",
+    "type": "package",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Martin Muriithi",
+            "email": "martin@pporting.org",
+            "homepage": "https://pporting.org/htmlparser"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Pport\\HtmlParser\\": "src/"
+        }
+    }
+}
