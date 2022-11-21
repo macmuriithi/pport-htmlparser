@@ -1,6 +1,6 @@
 {
     "name": "pport/htmlparser",
-    "description": "Create & Parse HTML Templates to PHP",
+    "description": "Frontend HTML Templating to a PHP Backend",
     "type": "package",
     "require": {
         "php": ">=5.3.0"
