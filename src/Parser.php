@@ -16,10 +16,36 @@ class Parser
 {
     public $template = NULL;
     public $params = [];
+    public $data = [];
     public function __construct($template = NULL, $params = [])
     {
         $template = $template ? $template : $_POST['template'];
-        $this->template = htmlspecialchars_decode($template);
+        $this->template = htmlspecialchars_decode(html_entity_decode($template));
+    }
+
+    public function __set($key, $value)
+    {
+        $this->set($key, $value);
+    }
+
+    public function setData($data)
+    {
+        $this->data = array_merge($this->data, $data);
+    }
+
+    public function set($key, $value)
+    {
+        $this->data[$key] = $value;
+    }
+
+    public function get($key)
+    {
+        isset($this->data[$key]) ? $this->data[$key] : NULL;
+    }
+
+    public function __get($key)
+    {
+        return $this->get($key);
     }
 
     public function run()
@@ -50,6 +76,9 @@ class Parser
     {
 
         ob_start();
+        extract($this->params);
+        extract($this->data);
+
         eval("?>" . $template);
 $obContents = ob_get_clean();
 return $obContents;
@@ -58,9 +87,18 @@ return $obContents;
 
 public function replaceTags($template)
 {
+
 $template = str_replace("<@", '<?php ', $template);
+        $template = str_replace("<#", '<?php ', $template);
+        $template = str_replace("</@", '<?php ', $template);
+        $template = str_replace("<!--?", '<?', $template);
+
         $template = str_replace(":/>", ":?>", $template);
         $template = str_replace("/>", ";?>", $template);
+
+        $template = str_replace("?-->", "?>", $template);
+        $template = str_replace(":>", ":?>", $template);
+        $template = str_replace(":>", ":?>", $template);
 
         return $template;
     }

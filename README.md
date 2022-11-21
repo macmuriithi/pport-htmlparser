@@ -10,7 +10,7 @@ Install pport\htmlparser using composer :
 
 ## To Create FrontEnd Applications Supported
 
-#### 1. Create a Front-End HTML. Ensure you include pport-reactive.js
+#### 1. Create a Front-End HTML. Ensure you include pport-reactive.js . Your HTML templates need to be placed in <fetch> tag
 
 ```html
 <!DOCTYPE html>
