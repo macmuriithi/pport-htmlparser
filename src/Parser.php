@@ -19,7 +19,7 @@ class Parser
     public $data = [];
     public function __construct($template = NULL, $params = [])
     {
-        $template = $template ? $template : $_POST['template'];
+        $template = $template ? $template : (isset($_POST['template']) ? $_POST['template'] : NULL);
         $this->template = htmlspecialchars_decode(html_entity_decode($template));
     }
 
