@@ -56,6 +56,9 @@ class Parser
 
 
         $template = $this->eval($template);
+
+        $template=str_replace("-path","",$template);
+        
         return $template;
     }
 
