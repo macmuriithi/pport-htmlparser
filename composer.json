@@ -2,6 +2,7 @@
     "name": "pport/htmlparser",
     "description": "Frontend HTML Templating to a PHP Backend :  pPort Html Parser lets you embed PHP logic in your markup. Use it with a PHP Backend to render your application's views on the server side.",
     "type": "package",
+    "version": "1.0.0",
     "require": {
         "php": ">=5.3.0"
     },
