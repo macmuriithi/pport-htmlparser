@@ -91,6 +91,11 @@ return $obContents;
 public function replaceTags($template)
 {
 
+foreach(["audio","source","image","iframe","video","src","style"] as $html_tag)
+    {
+        $template = str_replace($html_tag.":", $html_tag, $template);
+    }
+
 $template = str_replace("<@", '<?php ', $template);
         $template = str_replace("<#", '<?php ', $template);
         $template = str_replace("</@", '<?php ', $template);
